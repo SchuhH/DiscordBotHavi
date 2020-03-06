@@ -1,0 +1,13 @@
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\bin\Debug\netcoreapp3.1\DiscordBotHavi.exe
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\bin\Debug\netcoreapp3.1\DiscordBotHavi.deps.json
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\bin\Debug\netcoreapp3.1\DiscordBotHavi.runtimeconfig.json
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\bin\Debug\netcoreapp3.1\DiscordBotHavi.runtimeconfig.dev.json
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\bin\Debug\netcoreapp3.1\DiscordBotHavi.dll
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\bin\Debug\netcoreapp3.1\DiscordBotHavi.pdb
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\obj\Debug\netcoreapp3.1\DiscordBotHavi.csprojAssemblyReference.cache
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\obj\Debug\netcoreapp3.1\DiscordBotHavi.csproj.CoreCompileInputs.cache
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\obj\Debug\netcoreapp3.1\DiscordBotHavi.AssemblyInfoInputs.cache
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\obj\Debug\netcoreapp3.1\DiscordBotHavi.AssemblyInfo.cs
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\obj\Debug\netcoreapp3.1\DiscordBotHavi.dll
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\obj\Debug\netcoreapp3.1\DiscordBotHavi.pdb
+C:\Users\XavierBaszuk\source\repos\DiscordBotHavi\obj\Debug\netcoreapp3.1\DiscordBotHavi.genruntimeconfig.cache
