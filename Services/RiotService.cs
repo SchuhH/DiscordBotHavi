@@ -1,10 +1,12 @@
 ﻿using DiscordBotHavi.Classes;
+using DiscordBotHavi.Classes.MatchDTO;
 using DiscordBotHavi.Structs;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DiscordBotHavi.Services
@@ -12,10 +14,10 @@ namespace DiscordBotHavi.Services
     public class RiotService
     {
         private HttpClient client = new HttpClient();
-        
+
         public RiotService()
         {
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("X-Riot-Token", GetAuthToken().Result);
+            client.DefaultRequestHeaders.Add("X-Riot-Token", GetAuthToken().Result);
         }
 
         public async Task<SummonerDTO> GetSummonerByNameNA(string path)
@@ -29,11 +31,45 @@ namespace DiscordBotHavi.Services
                     SummonerDTO summoner = JsonConvert.DeserializeObject<SummonerDTO>(jsonResponse);
 
                     return summoner;
-                }          
+                }
             }
 
             return null;
 
+        }
+
+        public async Task<MatchlistDTO> GetMatchHistory(string path)
+        {
+            using (HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+                    MatchlistDTO matchlist = JsonConvert.DeserializeObject<MatchlistDTO>(jsonResponse);
+
+                    return matchlist;
+                }
+            }
+
+            return null;
+        }
+
+        public async Task<MatchDto> GetMatchResult(string path)
+        {
+            using (HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+                    var matchDto = MatchDto.FromJson(jsonResponse);
+
+                    return matchDto;
+                }
+            }
+
+            return null;
         }
 
         //public async Task<SummonerDTO> GetSummonerByNameEU(string summonerName)

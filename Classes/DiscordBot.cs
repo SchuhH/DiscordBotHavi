@@ -14,6 +14,7 @@ namespace DiscordBotHavi.Classes
 {
     public class DiscordBot
     {
+        public static Welcome champs;
 
         public DiscordClient Client { get; set; }
         public CommandsNextExtension Commands { get; set; }
@@ -22,6 +23,8 @@ namespace DiscordBotHavi.Classes
         // Starts bot
         public async Task RunAsync()
         {
+            await GenerateChampionsFromJson();
+
             var json = string.Empty;
 
             using (var fs = File.OpenRead("discordConfig.json"))
@@ -60,6 +63,21 @@ namespace DiscordBotHavi.Classes
 
             await Client.ConnectAsync();
             await Task.Delay(-1);
+        }
+
+
+        private async Task GenerateChampionsFromJson()
+        {
+            string json = string.Empty;
+
+            using (var fs = File.OpenRead("champions.json"))
+            {
+                using var sr = new StreamReader(fs, new UTF8Encoding(false));
+                json = await sr.ReadToEndAsync().ConfigureAwait(false);
+            }
+
+            champs = Welcome.FromJson(json);
+
         }
 
         private Task OnClientReady(ReadyEventArgs e)
