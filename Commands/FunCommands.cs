@@ -19,7 +19,7 @@ namespace DiscordBotHavi.Commands
         [Command("xtylerd")]
         [DSharpPlus.CommandsNext.Attributes.Description("Flames Tyler.")]
         public async Task FlameTyler(CommandContext ctx)
-         u r xd
+        {
             await ctx.Channel.SendMessageAsync("@tyrapple#5036 u r xd").ConfigureAwait(false);
         }
     }
