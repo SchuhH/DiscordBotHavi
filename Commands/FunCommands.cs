@@ -15,6 +15,7 @@ namespace DiscordBotHavi.Commands
         public async Task Ping(CommandContext ctx)
         {
             await ctx.Channel.SendMessageAsync(ctx.User.Mention +  " pong").ConfigureAwait(false);
-        }  
+        }
+        
     }
 }
