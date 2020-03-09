@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DiscordBotHavi.Classes;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.IO;
 
 namespace DiscordBotHavi
 {
@@ -6,7 +9,11 @@ namespace DiscordBotHavi
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            DiscordBot bot = new DiscordBot();
+
+            // Runs bot indefinitely
+            bot.RunAsync().GetAwaiter().GetResult();
+            
         }
     }
 }
