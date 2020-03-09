@@ -4,6 +4,7 @@ using DiscordBotHavi.Services;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
+using DSharpPlus.Interactivity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -34,18 +35,25 @@ namespace DiscordBotHavi.Commands
 
             await ctx.Channel.DeleteMessageAsync(message);
 
-            await ctx.Channel.SendMessageAsync("Summoner: " + userName).ConfigureAwait(false);
-            await ctx.Channel.SendMessageAsync("Level: " + basicInfo.summonerLevel).ConfigureAwait(false);
-            await ctx.Channel.SendMessageAsync("------------------------").ConfigureAwait(false);
-            await ctx.Channel.SendMessageAsync("Most played champs in ranked:").ConfigureAwait(false);
+
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine(">>> **Summoner** : " + userName);
+            stringBuilder.AppendLine("**Level** : " + basicInfo.summonerLevel);
+            stringBuilder.AppendLine("**Most played champs in ranked:**");
+            stringBuilder.AppendLine("------------------------");
+           
 
             foreach(ChampionMatchDTO championMatch in champsAndWinrates.Values)
             {
                 string result = championMatch.winrate.ToString("#0.##%");
-                await ctx.Channel.SendMessageAsync("Champ: " + championMatch.championName).ConfigureAwait(false);
-                await ctx.Channel.SendMessageAsync("Winrate: " + result).ConfigureAwait(false);
-                await ctx.Channel.SendMessageAsync(" -- ").ConfigureAwait(false);
+                stringBuilder.AppendLine("**Champ** : " + championMatch.championName);
+                stringBuilder.AppendLine("**Winrate** : " + result);
+                stringBuilder.AppendLine(" --");
             }
+            await ctx.Channel.SendMessageAsync(stringBuilder.ToString()).ConfigureAwait(false);
+
+
         }
     }
 }
