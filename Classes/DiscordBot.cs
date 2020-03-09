@@ -30,7 +30,7 @@ namespace DiscordBotHavi.Classes
                 json = await sr.ReadToEndAsync().ConfigureAwait(false);
             }
 
-            var configJson = JsonConvert.DeserializeObject<ConfigJson>(json);
+            var configJson = JsonConvert.DeserializeObject<DiscordConfigJson>(json);
 
             var config = new DiscordConfiguration
             {
@@ -56,6 +56,7 @@ namespace DiscordBotHavi.Classes
 
             Commands = Client.UseCommandsNext(commandsConfig);
             Commands.RegisterCommands<FunCommands>();
+            Commands.RegisterCommands<StatisticalCommands>();
 
             await Client.ConnectAsync();
             await Task.Delay(-1);

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DiscordBotHavi.Structs
 {
-    public struct ConfigJson
+    public struct DiscordConfigJson
     {
         [JsonProperty("token")]
         public string Token { get; private set; }
