@@ -1,5 +1,6 @@
 ﻿using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
+using DSharpPlus.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +17,12 @@ namespace DiscordBotHavi.Commands
         {
             await ctx.Channel.SendMessageAsync(ctx.User.Mention +  " pong").ConfigureAwait(false);
         }
+
         [Command("xtylerd")]
         [DSharpPlus.CommandsNext.Attributes.Description("Flames Tyler.")]
         public async Task FlameTyler(CommandContext ctx)
         {
-            await ctx.Channel.SendMessageAsync("@tyrapple#5036 u r xd").ConfigureAwait(false);
+            await ctx.Channel.SendMessageAsync("<@365172319972491284> u r xd").ConfigureAwait(false);
         }
     }
 }
