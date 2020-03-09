@@ -1,4 +1,5 @@
-﻿using DiscordBotHavi.Structs;
+﻿using DiscordBotHavi.Commands;
+using DiscordBotHavi.Structs;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
@@ -47,13 +48,14 @@ namespace DiscordBotHavi.Classes
 
             var commandsConfig = new CommandsNextConfiguration
             {
-                StringPrefixes = new string[] {configJson.Prefix},
+                StringPrefixes = new string[] { configJson.Prefix },
                 EnableMentionPrefix = true,
-                EnableDms = true
-                
+                EnableDms = true,
+                DmHelp = true           
             };
 
             Commands = Client.UseCommandsNext(commandsConfig);
+            Commands.RegisterCommands<FunCommands>();
 
             await Client.ConnectAsync();
             await Task.Delay(-1);
