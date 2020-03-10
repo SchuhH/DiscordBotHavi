@@ -39,7 +39,7 @@ namespace DiscordBotHavi.Commands
             builder.AppendLine(">>> **simp detecting machine**");
             builder.AppendLine($"{username} simp level");
 
-            if (username.Equals("<@!365172319972491284>") || simpLevel > .90)
+            if ((username.Equals("<@!365172319972491284>") || simpLevel > .90) && !ctx.User.Username.Equals("tyrapple"))
             {
                 builder.AppendLine("100% a simp lord. This guy will simp anything!");
             }

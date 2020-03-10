@@ -1,5 +1,6 @@
 ﻿using DiscordBotHavi.Classes;
 using DiscordBotHavi.Classes.MatchDTO;
+using DiscordBotHavi.Classes.RankedEntryDTO;
 using DiscordBotHavi.Services;
 using System.Threading.Tasks;
 
@@ -26,6 +27,11 @@ namespace DiscordBotHavi.Adapters
         public async Task<MatchDto> GetMatchById(string gameId)
         {
             return await riotService.GetMatchResult($"{baseUrl}/lol/match/v4/matches/{gameId}");
+        }
+
+        public async Task<RankedEntryDto[]> GetSummonerRankedEntriesById(string id)
+        {
+            return await riotService.GetSummonerRankedEntriesById($"{baseUrl}/lol/league/v4/entries/by-summoner/{id}");
         }
     }
 }
