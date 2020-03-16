@@ -60,6 +60,7 @@ namespace DiscordBotHavi.Classes
             Commands = Client.UseCommandsNext(commandsConfig);
             Commands.RegisterCommands<FunCommands>();
             Commands.RegisterCommands<StatisticalCommands>();
+            Commands.RegisterCommands<TwitchCommands>();
 
             await Client.ConnectAsync();
             await Task.Delay(-1);
