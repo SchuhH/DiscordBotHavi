@@ -1,5 +1,6 @@
 ﻿using DiscordBotHavi.Classes;
 using DiscordBotHavi.Classes.MatchDTO;
+using DiscordBotHavi.Classes.RankedEntryDTO;
 using DiscordBotHavi.Structs;
 using Newtonsoft.Json;
 using System.IO;
@@ -36,6 +37,23 @@ namespace DiscordBotHavi.Services
 
             return null;
 
+        }
+
+        public async Task<RankedEntryDto[]> GetSummonerRankedEntriesById(string path)
+        {
+            using (HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+                    RankedEntryDto[] rankedEntryDto = JsonConvert.DeserializeObject<RankedEntryDto[]>(jsonResponse);
+
+                    return rankedEntryDto;
+                }
+            }
+
+            return null;
         }
 
         public async Task<MatchlistDTO> GetMatchHistory(string path)

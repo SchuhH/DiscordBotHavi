@@ -11,8 +11,11 @@ namespace DiscordBotHavi
         {
             DiscordBot bot = new DiscordBot();
 
+          
             // Runs bot indefinitely
             bot.RunAsync().GetAwaiter().GetResult();
+
+            
             
         }
     }
